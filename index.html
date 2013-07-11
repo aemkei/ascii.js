@@ -1,6 +1,28 @@
 <meta charset='utf-8'> 
 <style>
+  body {
+    padding: 0;
+    margin: 0;
+  }
+  #output * {
+    position: absolute;
+    top: 0;
+    margin: 0;
+    transition: all 0.2s;
+  }
 
+  #output canvas{
+    opacity: 0;
+  }
+
+  #output:hover canvas {
+    opacity: 1;
+  }
+
+  #output:hover pre {
+    color: #F00;
+  }
 </style>
 
 <script src="asciify.js"></script>
+<div id="output"></div>

@@ -62,7 +62,6 @@ image.onload = function(){
     scaledHeight = height * 0.92,
     data, x, y;
 
-  document.body.appendChild(canvas);
   canvas.width = width;
   canvas.height = height;
   ctx.drawImage(image, 0, 0, width, scaledHeight);
@@ -76,9 +75,18 @@ image.onload = function(){
     out += "\n";
   }
 
-  var pre = document.createElement("pre");
+  ctx.drawImage(image, 0, 0, width, height);
+
+
+  var output = document.getElementById("output"),
+    pre = document.createElement("pre");
+
+  output.style.width = width + "px";
+  output.style.height = height + "px";
+
   pre.innerText = out;
-  document.body.appendChild(pre);
+  output.appendChild(canvas);
+  output.appendChild(pre);
 };
 
 image.src = "image.png";
