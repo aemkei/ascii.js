@@ -39,7 +39,9 @@ function getNearest(imageData){
     diff = 0;
 
     for (i = 0; i < charData.length; i += 4){
-      diff += Math.abs(imageData[i] > 200 != charData[i] > 200);
+      if (imageData[i+3]){
+        diff += Math.abs(imageData[i] > 200 != charData[i] > 200);
+      }
     }
 
     if (diff < min){
