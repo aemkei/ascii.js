@@ -3,7 +3,7 @@ var image = new Image(),
   ctx = canvas.getContext("2d"),
   cell = { width: 8, height: 12 },
   chars = {},
-  scale = 0.5;
+  scale = 1;
 
 canvas.width = cell.width;
 canvas.height = cell.height;
@@ -55,16 +55,17 @@ function getNearest(imageData){
 
 image.onload = function(){
   var out = "",
-    width = Math.round(image.width * scale * 1.4),
-    height = Math.round(image.height * scale),
+    width = image.width * scale,
+    height = image.height * scale,
+    scaledHeight = height * 0.92,
     data, x, y;
 
   document.body.appendChild(canvas);
   canvas.width = width;
   canvas.height = height;
-  ctx.drawImage(image, 0, 0, width, height);
+  ctx.drawImage(image, 0, 0, width, scaledHeight);
 
-  for (y = 0; y < height; y += cell.height + 2){
+  for (y = 0; y < scaledHeight; y += cell.height + 2){
     for (x = 0; x < width; x += cell.width){
       data = ctx.getImageData(x, y, cell.width, cell.height).data;
       out += getNearest(data);
