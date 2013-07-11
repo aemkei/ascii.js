@@ -7,7 +7,7 @@ var image = new Image(),
 
 canvas.width = cell.width;
 canvas.height = cell.height;
-ctx.font = cell.height + "px Courier";
+ctx.font = cell.height + "px monospace";
 
 function clear(){
   ctx.fillStyle = "#FFF";
