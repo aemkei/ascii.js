@@ -1,7 +1,7 @@
 var image = new Image(),
   canvas = document.createElement("canvas"),
   ctx = canvas.getContext("2d"),
-  cell = { width: 8, height: 12 },
+  cell = { width: 8, height: 13 },
   chars = {},
   scale = 1;
 
@@ -24,7 +24,11 @@ function getCharData(character){
   chars[character] = ctx.getImageData(0, 0, cell.width, cell.height).data;
 }
 
+var characters = "#*+`´'.:dbPUVMWA<>Xx ".split("")
+
 for (var c = 32; c < 127; c++){
+//for (var c in characters){
+//  getCharData(characters[c]);
   getCharData(String.fromCharCode(c));
 }
 
